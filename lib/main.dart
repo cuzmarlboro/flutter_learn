@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import '04.dart';
+// import '04.dart';
+// import '05.dart';
+import '06.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,7 +35,9 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       // home: const MyHomePage(title: 'Flutter Demo Home Page'),
-      home: const MyWidget04(),
+      // home: const MyWidget04(),
+      // home: const MyWidget05(),
+      home: const MyWidget06(),
     );
   }
 }
