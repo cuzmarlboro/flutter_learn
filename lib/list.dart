@@ -1,7 +1,7 @@
 /*
  * @LastEditors: hezeying@xdf.cn
  * @Date: 2025-03-23 23:35:20
- * @LastEditTime: 2025-03-24 00:03:18
+ * @LastEditTime: 2025-03-24 23:01:41
  * @FilePath: /flutter_learn/lib/list.dart
  * @Description: 四种常用列表：垂直列表、垂直图文列表、水平列表、动态列表
  */
@@ -30,7 +30,9 @@ class _ListWidgetState extends State<ListWidget> {
         // child: _verticalList(),
         // child: _verticalImageList(),
         // child: _verticalImageContentList(),
-        child: _horizontalList(),
+        // child: _horizontalList(),
+        // child: _dynamicList(),
+        child: _dynamicList2(),
       ),
     );
   }
@@ -249,6 +251,59 @@ class _ListWidgetState extends State<ListWidget> {
           ),
         ],
       ),
+    );
+  }
+
+  // 5. 动态列表（for循环实现动态列表）
+  Widget _dynamicList() {
+    List<Widget> list = [];
+    for (int i = 0; i < 20; i++) {
+      list.add(ListTile(title: Text('item $i')));
+    }
+    return ListView(
+      children: list,
+    );
+  }
+
+  // map 实现动态列表
+  Widget _dynamicList2() {
+    List list = [
+      {'title': '标题1', 'image': 'https://www.itying.com/images/flutter/1.png'},
+      {'title': '标题2', 'image': 'https://www.itying.com/images/flutter/2.png'},
+      {'title': '标题3', 'image': 'https://www.itying.com/images/flutter/3.png'},
+      {'title': '标题4', 'image': 'https://www.itying.com/images/flutter/4.png'},
+      {'title': '标题5', 'image': 'https://www.itying.com/images/flutter/5.png'},
+      {'title': '标题6', 'image': 'https://www.itying.com/images/flutter/6.png'},
+    ];
+    return ListView(
+      children: list.map((item) {
+        return ListTile(
+          title: Text(item['title']),
+          leading: Image.network(item['image']),
+        );
+      }).toList(), // 将 Iterable<Widget> 转换为具体的 List<Widget> 对象
+    );
+  }
+
+  // 6. 动态列表（ListView.builder实现动态列表）
+  Widget _dynamicList3() {
+    List list = [
+      {'title': '标题1', 'image': 'https://www.itying.com/images/flutter/1.png'},
+      {'title': '标题2', 'image': 'https://www.itying.com/images/flutter/2.png'},
+      {'title': '标题3', 'image': 'https://www.itying.com/images/flutter/3.png'},
+      {'title': '标题4', 'image': 'https://www.itying.com/images/flutter/4.png'},
+      {'title': '标题5', 'image': 'https://www.itying.com/images/flutter/5.png'},
+      {'title': '标题6', 'image': 'https://www.itying.com/images/flutter/6.png'},
+    ];
+    return ListView.builder(
+      itemCount: list.length,
+      itemBuilder: (context, index) {
+        return ListTile(
+          title: Text(list[index]['title']),
+          leading: Image.network(list[index]['image']),
+          trailing: const Icon(Icons.arrow_forward_ios),
+        );
+      },
     );
   }
 }
