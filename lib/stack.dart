@@ -1,7 +1,7 @@
 /*
  * @LastEditors: hezeying@xdf.cn
  * @Date: 2025-03-25 00:32:55
- * @LastEditTime: 2025-03-25 01:21:46
+ * @LastEditTime: 2025-03-25 10:13:31
  * @FilePath: /flutter_learn/lib/stack.dart
  * @Description: 层叠布局（Stack、Align、Positioned）
  */
@@ -123,68 +123,73 @@ class _StackWidgetState extends State<StackWidget> {
   // Positioned 结合 Stack组件
   _PositionedStack(width, height) {
     return Center(
-        child: Container(
-            height: height,
-            width: width,
-            color: Colors.red,
-            child: const Stack(children: [
-              Positioned(
-                left: 50,
-                top: 0,
-                child: Icon(Icons.home, size: 40, color: Colors.white),
-              ),
-              Positioned(
-                bottom: 0,
-                left: 100,
-                child: Icon(Icons.home, size: 40, color: Colors.white),
-              ),
-              Positioned(
-                bottom: 0,
-                right: 0,
-                child: Icon(Icons.home, size: 40, color: Colors.white),
-              ),
-            ])));
+      child: Container(
+        height: height,
+        width: width,
+        color: Colors.red,
+        child: const Stack(
+          children: [
+            Positioned(
+              left: 50,
+              top: 0,
+              child: Icon(Icons.home, size: 40, color: Colors.white),
+            ),
+            Positioned(
+              bottom: 0,
+              left: 100,
+              child: Icon(Icons.home, size: 40, color: Colors.white),
+            ),
+            Positioned(
+              bottom: 0,
+              right: 0,
+              child: Icon(Icons.home, size: 40, color: Colors.white),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 
   // Stack 结合 Positioned固定导航案例
   _FixedNavigationBar(width, height) {
-    return Stack(children: [
-      ListView(
-        padding: const EdgeInsets.only(top: 40),
-        children: const [
-          ListTile(
-            title: Text("这是一个标题 "),
-          ),
-          ListTile(
-            title: Text("这是一个标题 "),
-          ),
-          ListTile(
-            title: Text("这是一个标题 "),
-          ),
-          ListTile(
-            title: Text("这是一个标题 "),
-          ),
-          ListTile(
-            title: Text("这是一个标题 "),
-          ),
-          ListTile(
-            title: Text("这是一个标题 "),
-          ),
-          ListTile(
-            title: Text("这是一个标题 "),
-          ),
-          ListTile(
-            title: Text("这是一个标题 "),
-          ),
-          ListTile(
-            title: Text("这是一个标题 "),
-          ),
-          ListTile(
-            title: Text("这是一个标题 "),
-          ),
-        ],
-      ),
-      Positioned(
+    return Stack(
+      children: [
+        ListView(
+          padding: const EdgeInsets.only(top: 40),
+          children: const [
+            ListTile(
+              title: Text("这是一个标题 "),
+            ),
+            ListTile(
+              title: Text("这是一个标题 "),
+            ),
+            ListTile(
+              title: Text("这是一个标题 "),
+            ),
+            ListTile(
+              title: Text("这是一个标题 "),
+            ),
+            ListTile(
+              title: Text("这是一个标题 "),
+            ),
+            ListTile(
+              title: Text("这是一个标题 "),
+            ),
+            ListTile(
+              title: Text("这是一个标题 "),
+            ),
+            ListTile(
+              title: Text("这是一个标题 "),
+            ),
+            ListTile(
+              title: Text("这是一个标题 "),
+            ),
+            ListTile(
+              title: Text("这是一个标题 "),
+            ),
+          ],
+        ),
+        Positioned(
           top: 0,
           left: 0,
           height: 40,
@@ -196,7 +201,9 @@ class _StackWidgetState extends State<StackWidget> {
               "你好FLutter",
               style: TextStyle(color: Colors.white),
             ),
-          ))
-    ]);
+          ),
+        ),
+      ],
+    );
   }
 }

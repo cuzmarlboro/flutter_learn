@@ -9,7 +9,13 @@ import 'package:flutter/material.dart';
 // import 'row.dart';
 // import 'column.dart';
 // import 'flex.dart';
-import 'stack.dart';
+// import 'stack.dart';
+// import 'aspectRatio.dart';
+// import 'card.dart';
+// import 'button.dart';
+// import 'wrap.dart';
+// import 'bottomNavigationBar.dart';
+import 'drawer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -53,7 +59,13 @@ class MyApp extends StatelessWidget {
       // home: const RowWidget(),
       // home: const ColumnWidget(),
       // home: const FlexWidget(),
-      home: const StackWidget(),
+      // home: const StackWidget(),
+      // home: const AspectRatioWidget(),
+      // home: const CardWidget(),
+      // home: const ButtonWidget(),
+      // home: const WrapWidget(),
+      // home: const BottomNavigationBarWidget(),
+      home: const DrawerWidget(),
     );
   }
 }
