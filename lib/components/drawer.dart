@@ -1,7 +1,7 @@
 /*
  * @LastEditors: hezeying@xdf.cn
  * @Date: 2025-03-25 17:46:49
- * @LastEditTime: 2025-03-25 17:57:49
+ * @LastEditTime: 2025-03-25 20:10:35
  * @FilePath: /flutter_learn/lib/drawer.dart
  * @Description: Drawer
  */
@@ -36,34 +36,51 @@ class DrawerWidget extends StatefulWidget {
 class _DrawerWidgetState extends State<DrawerWidget> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Drawer'),
-      ),
-      body: const Center(
-        child: Text('Drawer'),
-      ),
-      drawer: Drawer(
-        child: Column(
-          children: [
-            // _drawerHeader(),
-            _userAccountsDrawerHeader(),
-            const ListTile(
-              title: Text("个人中心"),
-              leading: CircleAvatar(child: Icon(Icons.people)),
-            ),
-            const Divider(),
-            const ListTile(
-              title: Text("系统设置"),
-              leading: CircleAvatar(child: Icon(Icons.settings)),
-            )
-          ],
-        ),
-      ),
-      endDrawer: const Drawer(
-        child: Text('右侧边栏'),
+    return Drawer(
+      child: Column(
+        children: [
+          // _drawerHeader(),
+          _userAccountsDrawerHeader(),
+          const ListTile(
+            title: Text("个人中心"),
+            leading: CircleAvatar(child: Icon(Icons.people)),
+          ),
+          const Divider(),
+          const ListTile(
+            title: Text("系统设置"),
+            leading: CircleAvatar(child: Icon(Icons.settings)),
+          )
+        ],
       ),
     );
+    // return Scaffold(
+    //   appBar: AppBar(
+    //     title: const Text('Drawer'),
+    //   ),
+    //   body: const Center(
+    //     child: Text('Drawer'),
+    //   ),
+    // drawer: Drawer(
+    //   child: Column(
+    //     children: [
+    //       // _drawerHeader(),
+    //       _userAccountsDrawerHeader(),
+    //       const ListTile(
+    //         title: Text("个人中心"),
+    //         leading: CircleAvatar(child: Icon(Icons.people)),
+    //       ),
+    //       const Divider(),
+    //       const ListTile(
+    //         title: Text("系统设置"),
+    //         leading: CircleAvatar(child: Icon(Icons.settings)),
+    //       )
+    //     ],
+    //   ),
+    // ),
+    //   endDrawer: const Drawer(
+    //     child: Text('右侧边栏'),
+    //   ),
+    // );
   }
 
   _drawerHeader() {

@@ -1,7 +1,7 @@
 /*
  * @LastEditors: hezeying@xdf.cn
  * @Date: 2025-03-25 17:22:46
- * @LastEditTime: 2025-03-25 17:43:44
+ * @LastEditTime: 2025-03-25 20:06:45
  * @FilePath: /flutter_learn/lib/bottomNavigationBar.dart
  * @Description: BottomNavigationBar
  */
@@ -26,7 +26,12 @@
 import 'package:flutter/material.dart';
 
 class BottomNavigationBarWidget extends StatefulWidget {
-  const BottomNavigationBarWidget({super.key});
+  final dynamic currentIndex;
+
+  final dynamic onTap;
+
+  const BottomNavigationBarWidget(
+      {super.key, required this.currentIndex, required this.onTap});
 
   @override
   State<BottomNavigationBarWidget> createState() =>
@@ -34,8 +39,6 @@ class BottomNavigationBarWidget extends StatefulWidget {
 }
 
 class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
-  int _currentIndex = 0; // 当前选中的索引
-
   final List<Map<String, dynamic>> _pages = [
     {
       'title': '首页',
@@ -61,28 +64,21 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('BottomNavigationBar'),
-      ),
-      body: Center(
-        child: Text('${_pages[_currentIndex]['title']}'),
-      ),
-      bottomNavigationBar: _bottomNavigationBar(),
-      floatingActionButton: _floatingActionButton(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-    );
+    // return Scaffold(
+    //   bottomNavigationBar: _bottomNavigationBar(),
+    //   floatingActionButton: _floatingActionButton(),
+    //   floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+    // );
+    return _bottomNavigationBar();
   }
 
   _bottomNavigationBar() {
     return BottomNavigationBar(
-      currentIndex: _currentIndex,
+      currentIndex: widget.currentIndex,
       // 固定底部导航栏， 如果底部有4个或者4个以上的菜单的时候就需要配置这个参数
       type: BottomNavigationBarType.fixed,
       onTap: (index) {
-        setState(() {
-          _currentIndex = index;
-        });
+        widget.onTap(index);
       },
       items: _pages.map(
         (item) {
@@ -103,11 +99,9 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
       margin: const EdgeInsets.only(top: 4),
       child: FloatingActionButton(
         shape: const CircleBorder(),
-        backgroundColor: _currentIndex == 2 ? Colors.red : Colors.blue,
+        backgroundColor: widget.currentIndex == 2 ? Colors.red : Colors.blue,
         onPressed: () {
-          setState(() {
-            _currentIndex = 2;
-          });
+          widget.onTap(2);
         },
         child: const Icon(Icons.add),
       ),
